@@ -1,0 +1,27 @@
+version: '2'
+services: 
+  db:
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=inkster
+      - MONGO_INITDB_ROOT_PASSWORD=inkster
+      - MONGO_INITDB_ROOT_DATABASE=inkster
+  web:
+    image: rainbowsprinkles/inkster:latest
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      - INKSTER_DB_URI=mongodb://inkster:inkster@db/admin
+      - INKSTER_DB_NAME=inkster
+      - INKSTER_PORT=8000
+  nginx:
+    image: nginx:alpine
+    ports: 
+      - "8000:80"
+    volumes:
+      - ./server.conf:/etc/nginx/conf.d/server.conf
+      - ./dist/:/etc/nginx/html/
+    command: /bin/sh -c "envsubst < /etc/nginx/conf.d/server.conf > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+

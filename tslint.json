@@ -1,0 +1,69 @@
+{
+    "extends": [
+      "tslint:recommended"
+    ],
+    "rulesDirectory": [
+      "node_modules/tslint-eslint-rules/dist/rules"
+    ],
+    "rules": {
+      "trailing-comma": [true, {
+        "multiline": "never",
+        "singleline": "never"
+      }],
+      "interface-name": [false, "always-prefix"],
+      "arrow-parens": false,
+      "component-class-suffix": true,
+      "directive-class-suffix": true,
+      "import-destructuring-spacing": true,
+      "no-attribute-parameter-decorator": true,
+      "no-forward-ref": true,
+      "no-input-rename": true,
+      "no-output-rename": true,
+      "pipe-naming": [true, "camelCase"],
+      "use-host-property-decorator": true,
+      "use-input-property-decorator": true,
+      "use-life-cycle-interface": true,
+      "use-output-property-decorator": true,
+      "use-pipe-transform-interface": true,
+      "no-console": [true,
+        "time",
+        "timeEnd",
+        "trace"
+      ],
+      "max-line-length": [
+        false,
+        100
+      ],
+      "no-string-literal": false,
+      "no-use-before-declare": true,
+      "object-literal-sort-keys": false,
+      "ordered-imports": [
+        false
+      ],
+      "quotemark": [
+        true,
+        "single",
+        "avoid-escape"
+      ],
+      "variable-name": [
+        true,
+        "allow-leading-underscore",
+        "allow-pascal-case",
+        "ban-keywords",
+        "check-format"
+      ],
+      "ter-indent": [
+        true,
+        4,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "array-type": [
+        false
+      ],
+      "member-access": [
+        false
+      ]
+    }
+  }
