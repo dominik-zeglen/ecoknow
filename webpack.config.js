@@ -4,65 +4,51 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.tsx',
+  entry: './src/index.tsx',
 
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-    },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.[hash].js',
+  },
 
-    devtool: 'source-map',
+  devtool: 'source-map',
 
-    devServer: {
-        contentBase: './dist'
-    },
+  devServer: {
+    contentBase: './dist',
+  },
 
-    resolve: {
-        extensions: [
-            '.ts',
-            '.tsx',
-            '.js',
-            '.json'
-        ]
-    },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json'],
+  },
 
-    module: {
-        rules: [
-            
-            {
-                test: /\.tsx?$/,
-                loader: 'awesome-typescript-loader',
-                exclude: /node_modules/
-            },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+        exclude: /node_modules/,
+      },
 
-            {
-                test:/\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ],
-                exclude: /node_modules/
-            },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+        exclude: /node_modules/,
+      },
 
-            {
-                test: /\.scss$/,
-                use: [ 
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ],
-                exclude: /node_modules/
-            }
-
-        ]
-    },
-
-    mode: 'development',
-    
-    plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        })
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        exclude: /node_modules/,
+      },
     ],
+  },
+
+  mode: 'development',
+
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
 };

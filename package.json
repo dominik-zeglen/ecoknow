@@ -5,7 +5,7 @@
   "main": "index.jsx",
   "scripts": {
     "start": "webpack --watch",
-    "build": "webpack",
+    "build": "NODE_ENV=production UV_THREADPOOL_SIZE=8 webpack -p",
     "precommit": "lint-staged"
   },
   "author": "Anders (github.com/dominik-zeglen)",

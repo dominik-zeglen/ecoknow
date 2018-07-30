@@ -6,7 +6,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=inkster
       - MONGO_INITDB_ROOT_PASSWORD=inkster
       - MONGO_INITDB_ROOT_DATABASE=inkster
-  web:
+  inkster:
     image: rainbowsprinkles/inkster:latest
     links:
       - db
@@ -22,6 +22,7 @@ services:
       - "8000:80"
     volumes:
       - ./server.conf:/etc/nginx/conf.d/server.conf
-      - ./dist/:/etc/nginx/html/
-    command: /bin/sh -c "envsubst < /etc/nginx/conf.d/server.conf > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+      - ./dist/:/etc/nginx/html/dist/
+      - ./static/:/etc/nginx/html/static/
+    command: /bin/sh -c "cat /etc/nginx/conf.d/server.conf > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
 
