@@ -16,6 +16,10 @@ services:
       - INKSTER_DB_URI=mongodb://inkster:inkster@db/admin
       - INKSTER_DB_NAME=inkster
       - INKSTER_PORT=8000
+      - INKSTER_STATIC=static
+      - INKSTER_SERVE_STATIC=0
+    volumes:
+      - ./static:/go/src/app/static
   nginx:
     image: nginx:alpine
     ports: 
