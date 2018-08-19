@@ -23,6 +23,7 @@ declare module 'react-feather' {
   export const Folder: StatelessComponent<FeatherIcon>;
   export const Home: StatelessComponent<FeatherIcon>;
   export const Plus: StatelessComponent<FeatherIcon>;
+  export const Settings: StatelessComponent<FeatherIcon>;
   export const Trash: StatelessComponent<FeatherIcon>;
   export const X: StatelessComponent<FeatherIcon>;
 }

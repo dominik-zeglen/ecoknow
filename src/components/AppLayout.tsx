@@ -1,5 +1,6 @@
 import * as React from 'react';
 import withStyles from 'react-jss';
+import {Settings} from 'react-feather';
 
 import Skeleton from './Skeleton';
 
@@ -53,7 +54,14 @@ const decorate = withStyles((theme: any) => ({
   sideMenuTitle: {
     fontSize: theme.typography.subHeading.fontSize,
   },
-  sideMenuBody: {},
+  sideMenuBody: {
+    display: 'flex' as 'flex',
+    flexDirection: 'column' as 'column',
+    height: `calc(100% - ${theme.spacing * 2 + 1.563 * 16 + 10}px)`,
+  },
+  spacer: {
+    flex: 1,
+  },
 }));
 export const AppLayout = decorate<Props>(
   ({classes, children, sections, onHomeClick, onSectionClick}) => (
@@ -82,6 +90,10 @@ export const AppLayout = decorate<Props>(
               </div>
             ))
           )}
+          <div className={classes.spacer} />
+          <div className={classes.link} onClick={() => {}}>
+            <Settings /> Panel
+          </div>
         </div>
       </div>
       <div>{children}</div>
