@@ -22,6 +22,7 @@ export const AppRoot: React.StatelessComponent = ({children}) => (
           const handleHomeClick = () => navigate('/');
           const handleSectionClick = (id: string) => () =>
             navigate('/' + urlize(id));
+          const handlePanelClick = () => window.open('/panel/', '_blank');
           return (
             <AppLayout
               sections={
@@ -30,6 +31,7 @@ export const AppRoot: React.StatelessComponent = ({children}) => (
                   : undefined
               }
               onHomeClick={handleHomeClick}
+              onPanelClick={handlePanelClick}
               onSectionClick={handleSectionClick}>
               {children}
             </AppLayout>

@@ -10,6 +10,7 @@ interface Props {
     name: string;
   }>;
   onHomeClick: () => void;
+  onPanelClick: () => void;
   onSectionClick: (id: string) => () => void;
 }
 
@@ -64,7 +65,14 @@ const decorate = withStyles((theme: any) => ({
   },
 }));
 export const AppLayout = decorate<Props>(
-  ({classes, children, sections, onHomeClick, onSectionClick}) => (
+  ({
+    classes,
+    children,
+    sections,
+    onHomeClick,
+    onPanelClick,
+    onSectionClick,
+  }) => (
     <div className={classes.root}>
       <div className={classes.sideMenu}>
         <div className={classes.sideMenuHeader}>
@@ -91,7 +99,7 @@ export const AppLayout = decorate<Props>(
             ))
           )}
           <div className={classes.spacer} />
-          <div className={classes.link} onClick={() => {}}>
+          <div className={classes.link} onClick={onPanelClick}>
             <Settings /> Panel
           </div>
         </div>
